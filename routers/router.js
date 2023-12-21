@@ -24,7 +24,7 @@ router.use((req, res, next) => {
 router.get("/login", Controller.loginPage)
 
 
-router.get("/president", Controller)
+router.get("/election", Controller.renderElection)
 
 
 module.exports = router

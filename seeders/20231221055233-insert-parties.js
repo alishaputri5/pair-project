@@ -4,7 +4,7 @@ const fs = require('fs').promises
 module.exports = {
   async up (queryInterface, Sequelize) {
     let data = JSON.parse(await fs.readFile('./parties.json', 'utf-8'))
-    console.log(data);
+    // console.log(data);
     let result = data.map(el => {
       el.createdAt = el.updatedAt = new Date()
       return el

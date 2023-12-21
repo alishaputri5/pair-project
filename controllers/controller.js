@@ -24,6 +24,19 @@ class Controller {
   //     res.send(error)
   //   }
   // }
+
+  static async renderElection(req, res) {
+    try {
+      // let data = await Party.findAll()
+      let candidates = await PresidentCandidate.findAll()
+
+      res.render("electionPage", {candidates})
+
+      res.send(data)
+    } catch (error) {
+      res.send(error)
+    }
+  }
 }
 
 module.exports = Controller
