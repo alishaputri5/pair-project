@@ -19,16 +19,15 @@ app.use(session({
     sameSite:true }  //cookie sameSite, dipasang untuk menghindari yang namanya csrf attack
 }))
 
-app.get('/register', Controller.registerPage)
-app.get('/formProfile', Controller.formAddProfilePresident)
+app.get("/election", Controller.renderElection)
+app.post("/election", Controller.handleElection)
 app.use(router)
 
 
 app.use(express.urlencoded({extended : true}))
 app.set('view engine', 'ejs')
 
-// app.get('/', Controller.loginPage)
-// app.get('/', Controller.handleLoginPage)
+
 
 let asd = "asd"
 app.listen(port, () => {

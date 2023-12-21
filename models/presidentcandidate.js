@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   PresidentCandidate.init({
     namePresident: DataTypes.STRING,
-    votePresident: DataTypes.INTEGER,
+    votePresident: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     UserId: DataTypes.INTEGER,
     PresidentProfileId: DataTypes.INTEGER
   }, {
