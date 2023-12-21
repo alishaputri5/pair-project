@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       PresidentCandidate.belongsTo(models.PresidentProfile, {foreignKey: "PresidentProfileId"})
 
       PresidentCandidate.hasMany(models.Voter, {foreignKey: "PresidentId"})
-      // president candidate punya banyak party atau satu party ????
+      PresidentCandidate.hasMany(models.Party, {foreignKey: "PresidentId"})
     }
   }
   PresidentCandidate.init({
