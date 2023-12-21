@@ -4,7 +4,11 @@ const router = require("express").Router()
 
 router.get("/", Controller.showHome)
 
+router.get('/register', Controller.registerPage)
+router.post('/register', Controller.handleRegisterPage)
 
+router.get("/login", Controller.loginPage)
+router.post("/login", Controller.handleLoginPage)
 
 // validation
 router.use((req, res, next) => {
@@ -13,18 +17,30 @@ router.use((req, res, next) => {
   next()
 })
 
+
 router.use((req, res, next) => {
-  // if (!req.session.User.id) {
-  //   const error = "please login first"
-  // } else {
-  // }
-  next()
-})
+  if (!req.session.user) {
+      const error = "please login first"
+      res.redirect("/")
+    } else {
+      }
+      next()
+    })
 
-router.get("/login", Controller.loginPage)
-
-
+const president = (req, res, next) => {
+  if (req.session.role !== "President") {
+    const error = "Voter only!"
+    return res.redirect("/?error=President only!")
+  } else {
+    next()
+  }
+}
+    
+    
+    
 router.get("/election", Controller.renderElection)
+
+router.get("/presidentProfile",president, Controller.presidentProfile)
 
 
 module.exports = router

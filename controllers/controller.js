@@ -1,4 +1,6 @@
 const {Party, PresidentCandidate, PresidentProfile, User, Voter, VoterParty} = require("../models")
+const bcryptjs = require("bcryptjs")
+const session = require("express-session")
 
 class Controller {
 
@@ -9,7 +11,7 @@ class Controller {
       res.send(error)
     }
   }
-  static loginPage(req, res) {
+  static async loginPage(req, res) {
     try {
       res.render('loginPage')
     } catch (error) {
@@ -17,13 +19,54 @@ class Controller {
       res.send(error)
     }
   }
-  // static async handleLoginPage(req, res) {
-  //   try {
-  //     res.redirect()
-  //   } catch (error) {
-  //     res.send(error)
-  //   }
-  // }
+  
+  static async handleLoginPage(req, res) {
+    try {
+      const {user, password} = req.body
+      let foundUser = await User.findOne({where: {user: user}})
+      // console.log(foundUser)
+
+      if (foundUser) {
+        const isValidPassword = bcryptjs.compareSync(password, foundUser.password)
+
+        if (isValidPassword) {
+          req.session.user = foundUser.user
+          req.session.role = foundUser.role
+
+          return res.redirect("/login?=berhasil")
+        } else {
+          const error = "Invalid Username / Password"
+          return res.redirect(`/login?error=${error}`)
+        } 
+
+      } else {
+        const error = "Invalid Username / Password"
+        return res.redirect(`/login?error=${error}`)
+      }
+    } catch (error) {
+      res.send(error)
+    }
+  }
+
+  static async registerPage(req, res) {
+    try {
+      res.render('registerPage')
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+
+  static async handleRegisterPage(req, res) {
+    try {
+      const {user, password, role} = req.body
+      await User.create({user, password, role})
+      res.redirect("/register")
+    } catch (error) {
+      res.send(error)
+    }
+  }
+  
 
   static async renderElection(req, res) {
     try {
@@ -33,6 +76,14 @@ class Controller {
       res.render("electionPage", {candidates})
 
       res.send(data)
+    } catch (error) {
+      res.send(error)
+    }
+  }
+
+  static async presidentProfile(req, res) {
+    try {
+      res.send("president")
     } catch (error) {
       res.send(error)
     }
