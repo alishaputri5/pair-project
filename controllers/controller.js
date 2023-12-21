@@ -17,6 +17,14 @@ class Controller {
       res.send(error)
     }
   }
+  static registerPage(req, res) {
+    try {
+      res.render('registerPage')
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
   // static async handleLoginPage(req, res) {
   //   try {
   //     res.redirect()

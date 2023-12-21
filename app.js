@@ -8,6 +8,8 @@ app.set('view engine', 'ejs')
 
 app.get('/', Controller.loginPage)
 // app.get('/', Controller.handleLoginPage)
+app.get('/register', Controller.registerPage)
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
