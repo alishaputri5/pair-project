@@ -5,37 +5,30 @@
   },
   {
     "name": "PHP",
-    "PresidentId": 1,
     "voteParty": 0
   },
   {
     "name": "Demokan",
-    "PresidentId": 3,
     "voteParty": 0
   },
   {
     "name": "Pedih",
-    "PresidentId": 2,
     "voteParty": 0
   },
   {
     "name": "Naspad",
-    "PresidentId": 1,
     "voteParty": 0
   },
   {
     "name": "Gerakan Gen-Z",
-    "PresidentId": 1,
     "voteParty": 0
   },
   {
     "name": "Amanat Pejabat",
-    "PresidentId": 1,
     "voteParty": 0
   },
   {
     "name": "Terang Bulan",
-    "PresidentId": 3,
     "voteParty": 0
   }
 ]
