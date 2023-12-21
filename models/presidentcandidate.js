@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      PresidentCandidate.belongsTo(models.User, {foreignKey: "UserId"})
+      PresidentCandidate.belongsTo(models.PresidentProfile, {foreignKey: "PresidentProfileId"})
+
+      PresidentCandidate.hasMany(models.Voter, {foreignKey: "PresidentId"})
+      // president candidate punya banyak party atau satu party ????
     }
   }
   PresidentCandidate.init({
