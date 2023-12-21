@@ -6,7 +6,7 @@ class Controller {
 
   static async showHome(req, res) {
     try {
-      res.send("alo")
+      res.render("home")
     } catch (error) {
       res.send(error)
     }
@@ -32,6 +32,7 @@ class Controller {
         if (isValidPassword) {
           req.session.user = foundUser.user
           req.session.role = foundUser.role
+          req.session.id = foundUser.id
 
           return res.redirect("/login?=berhasil")
         } else {
@@ -84,6 +85,50 @@ class Controller {
   static async presidentProfile(req, res) {
     try {
       res.send("president")
+    } catch (error) {
+      res.send(error)
+    }
+  }
+
+  static async showParties(req, res) {
+    try {
+      let data = await Party.findAll({
+        include: {
+          model: PresidentCandidate
+        }
+      })
+      res.send(data)
+    } catch (error) {
+      res.send(error)
+    }
+  }
+
+  static async partyEdit(req, res) {
+    try {
+      const {id} = req.session
+      let partiesByPresident = await Party.findAll({
+        include: {
+          model: PresidentCandidate,
+        },
+        where: {
+          PresidentId: id
+        }
+      })
+      res.render(partiesByPresident)
+    } catch (error) {
+      res.send(error)
+    }
+  }
+
+  static async showVoterParties(req, res) {
+    try {
+      let data = await Party.findAll({
+        include: {
+          model: VoterParty,
+          include: Voter
+        }
+      })
+      res.render("voterPartiesList")
     } catch (error) {
       res.send(error)
     }
