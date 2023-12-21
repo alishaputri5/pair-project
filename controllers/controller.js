@@ -105,6 +105,25 @@ class Controller {
       res.send(error)
     }
   }
+  static async renderFormElection(req,res) {
+    try {
+      let candidates = await PresidentProfile.findAll()
+      let parties = await Party.findAll()
+      console.log(candidates);
+      res.render('formElection', {candidates, parties})
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
+  static async logoutProfile(req, res) {
+    try {
+      await req.session.destroy()
+      res.redirect('/login')
+    } catch (error) {
+      res.send(error)
+    }
+  }
 }
 
 module.exports = Controller

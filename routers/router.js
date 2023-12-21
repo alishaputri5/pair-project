@@ -42,9 +42,11 @@ router.get("/election", Controller.renderElection)
 
 router.get("/presidentProfile",president, Controller.presidentProfile)
 
-router.get("/parties", Controller.showParties)
+// router.get("/parties", Controller.showParties)
 
-router.get("/:PresidentId/partiesEdit", Controller.partyEdit)
+// router.get("/:PresidentId/partiesEdit", Controller.partyEdit)
+
+
 
 
 module.exports = router
