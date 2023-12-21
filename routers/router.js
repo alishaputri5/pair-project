@@ -2,6 +2,10 @@ const Controller = require("../controllers/controller")
 
 const router = require("express").Router()
 
+router.get("/", Controller.showHome)
+
+
+
 // validation
 router.use((req, res, next) => {
   console.log('Time:', Date.now())
@@ -10,14 +14,15 @@ router.use((req, res, next) => {
 })
 
 router.use((req, res, next) => {
-  if (!req.session.User.id) {
-    const error = "please login first"
-  } else {
-    next()
-  }
+  // if (!req.session.User.id) {
+  //   const error = "please login first"
+  // } else {
+  // }
+  next()
 })
 
-router.get("/", Controller.showHome)
+router.get("/login", Controller.loginPage)
+
 
 router.get("/president", Controller)
 
