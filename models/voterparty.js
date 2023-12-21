@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       VoterParty.belongsTo(models.Voter, {foreignKey: "VoterId"})
       VoterParty.belongsTo(models.Party, {foreignKey: "PartyId"})
+      
     }
   }
   VoterParty.init({
