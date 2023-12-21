@@ -25,6 +25,14 @@ class Controller {
       res.send(error)
     }
   }
+  static formAddProfilePresident(req, res) {
+    try {
+      res.render('formProfilePresident')
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
+  }
   // static async handleLoginPage(req, res) {
   //   try {
   //     res.redirect()

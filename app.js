@@ -9,6 +9,7 @@ app.set('view engine', 'ejs')
 app.get('/', Controller.loginPage)
 // app.get('/', Controller.handleLoginPage)
 app.get('/register', Controller.registerPage)
+app.get('/formProfile', Controller.formAddProfilePresident)
 
 
 app.listen(port, () => {
