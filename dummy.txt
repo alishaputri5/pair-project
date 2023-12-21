@@ -1,0 +1,7 @@
+bikin branch baru
+git checkout -b "namabaranch"
+
+git branch
+git fetch
+
+git checkout development
