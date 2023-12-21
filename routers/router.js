@@ -23,12 +23,12 @@ router.use((req, res, next) => {
       const error = "please login first"
       res.redirect("/")
     } else {
-      }
       next()
+      }
     })
-
-const president = (req, res, next) => {
-  if (req.session.role !== "President") {
+    
+    const president = (req, res, next) => {
+      if (req.session.role !== "President") {
     const error = "Voter only!"
     return res.redirect("/?error=President only!")
   } else {
@@ -37,10 +37,14 @@ const president = (req, res, next) => {
 }
     
     
-    
+
 router.get("/election", Controller.renderElection)
 
 router.get("/presidentProfile",president, Controller.presidentProfile)
+
+router.get("/parties", Controller.showParties)
+
+router.get("/:PresidentId/partiesEdit", Controller.partyEdit)
 
 
 module.exports = router

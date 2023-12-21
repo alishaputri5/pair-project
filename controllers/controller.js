@@ -6,7 +6,7 @@ class Controller {
 
   static async showHome(req, res) {
     try {
-      res.send("alo")
+      res.render("home")
     } catch (error) {
       res.send(error)
     }
@@ -32,6 +32,7 @@ class Controller {
         if (isValidPassword) {
           req.session.user = foundUser.user
           req.session.role = foundUser.role
+          req.session.id = foundUser.id
 
           return res.redirect("/login?=berhasil")
         } else {
@@ -104,7 +105,6 @@ class Controller {
       res.send(error)
     }
   }
-
 }
 
 module.exports = Controller
