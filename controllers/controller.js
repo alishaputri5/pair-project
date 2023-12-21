@@ -4,7 +4,7 @@ class Controller {
 
   static async showHome(req, res) {
     try {
-      
+      res.send("allo")
     } catch (error) {
       res.send(error)
     }
