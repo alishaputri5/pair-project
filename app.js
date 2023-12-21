@@ -21,6 +21,9 @@ app.use(session({
 
 app.get('/formElection', Controller.renderFormElection)
 app.get('/logoutProfile', Controller.logoutProfile)
+
+app.get("/election", Controller.renderElection)
+app.post("/election", Controller.handleElection)
 app.use(router)
 
 

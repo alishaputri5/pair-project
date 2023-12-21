@@ -23,14 +23,14 @@
         <small class="text-gray-400">Welcome! Please input your profile details</small>
 
         <!-- Form -->
-        <form class="mt-4">
+        <form class="mt-4" action="/president/addPresidentProfile" method="post">
           <div class="mb-3">
             <label name="name" class="mb-2 block text-xs font-semibold">Name</label>
-            <input type="text" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+            <input name="name" type="text" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
           </div>
           <div class="mb-3">
             <label name="age" class="mb-2 block text-xs font-semibold">Age</label>
-            <input type="number" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+            <input name="age" type="number" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
           </div>
           <div class="mb-3">
             <div class="flex items-center mb-4">
@@ -45,17 +45,17 @@
 
           <div class="mb-3">
             <label name="visionMission" class="mb-2 block text-xs font-semibold">Vision and Mission</label>
-            <textarea id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
+            <textarea name="visionMission" id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
           </div>
 
           <div class="mb-3">
             <label class="mb-2 block text-xs font-semibold">Input Url</label>
-            <input type="text" placeholder="" class="block w-full rounded-md border border-gray-400 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
+            <input name="imageUrl" type="text" placeholder="" class="block w-full rounded-md border border-gray-400 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" />
           </div>
 
 
           <div class="mb-3">
-            <button class="mb-2 block text-s w-full text-center text-white bg-gray-400 hover:bg-purple-900 px-2 py-1.5 rounded-md">Submit</button>
+            <button type="submit" class="mb-2 block text-s w-full text-center text-white bg-gray-400 hover:bg-purple-900 px-2 py-1.5 rounded-md">Submit</button>
             
               
             

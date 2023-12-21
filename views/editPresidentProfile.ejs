@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body>
+  <!-- component -->
+<!-- Container -->
+<div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
+  
+  <!-- Login component -->
+  <div class="flex shadow-md">
+    <!-- Login form -->
+    <div class="flex flex-wrap content-center justify-center rounded-l-md bg-white" style="width: 24rem; height: 32rem;">
+      <div class="w-72">
+        <!-- Heading -->
+        <h1 class="text-xl font-semibold">Edit Profile</h1>
+        <small class="text-gray-400">Edit your profile details</small>
+
+        <!-- Form -->
+        <form class="mt-4" action="/president/editProfile/<%= presidentProfile.PresidentProfile.id %>" method="post">
+          <div class="mb-3">
+            <label name="name" class="mb-2 block text-xs font-semibold">Name</label>
+            <input name="name" type="text" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" value="<%= presidentProfile.PresidentProfile.name %>" />
+          </div>
+          <div class="mb-3">
+            <label name="age" class="mb-2 block text-xs font-semibold">Age</label>
+            <input name="age" type="number" placeholder="" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" value="<%= presidentProfile.PresidentProfile.age %>" />
+          </div>
+          <div class="mb-3">
+            <div class="flex items-center mb-4">
+              <select class="mb-2 block text-xs font-semibold" name="gender" id="">
+                <!-- <option selected hidden disabled value="">Gender...</option> -->
+                <option <%= presidentProfile.PresidentProfile.gender === "Female"? "selected" : "" %> value="Female">Female</option>
+                <option <%= presidentProfile.PresidentProfile.gender === "Male"? "selected" : "" %> value="Male">Male</option>
+              </select>
+            </div>
+          
+          </div>
+
+          <div class="mb-3">
+            <label name="visionMission" class="mb-2 block text-xs font-semibold">Vision and Mission</label>
+            <textarea name="visionMission" id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"><%= presidentProfile.PresidentProfile.visionMission %></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="mb-2 block text-xs font-semibold">Input Url</label>
+            <input name="imageUrl" type="text" placeholder="" class="block w-full rounded-md border border-gray-400 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" value="<%= presidentProfile.PresidentProfile.imageUrl %>"/>
+          </div>
+
+
+          <div class="mb-3">
+            <button type="submit" class="mb-2 block text-s w-full text-center text-white bg-gray-400 hover:bg-purple-900 px-2 py-1.5 rounded-md">Submit</button>
+            
+              
+            </button>
+          </div>
+        </form>
+
+        <!-- Footer -->
+       
+      </div>
+    </div>
+
+    <!-- Login banner -->
+    <div class="flex flex-wrap content-center justify-center rounded-r-md" style="width: 24rem; height: 32rem;">
+      <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md" src="https://i.imgur.com/9l1A4OS.jpeg">
+    </div>
+
+  </div>
+
+  <!-- Credit -->
+  
+</div>
+</body>
+    </html>
+
+  

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>President Can Choose Parties</h1>
+
+  <table border="1">
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+    <!-- looping -->
+    <% let i = 1 %>
+    <% parties.forEach(el => { %>
+      <tr>
+        <td><%= i %></td>
+        <td><%= el.name %></td>
+        <td><a href="/president/chooseParty/<%= el.id %>">Choose</a></td>
+        <td><a href="/president/delete/<%= el.id %>"></a></td>
+      </tr>
+      <% i++ %>
+    <% }) %>
+  </table>
+</body>
+</html>
